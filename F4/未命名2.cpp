@@ -30,6 +30,7 @@ void getAllFiles(string path, vector<string>& files,string format)
 	int size = files.size();
 	for (int i = 0; i<size; i++)
 	{
-		cout << files[i] << endl;
+		cout << files[i] << endl;		 
 	}
+	printf("\n\n↑↑↑↑以上为给目录下所有文件↑↑↑↑\n\n");
 }
