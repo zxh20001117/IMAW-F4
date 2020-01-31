@@ -1,0 +1,37 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = 主体.o 递归储存文件名.o 查找关键字.o 查找最早创建文件.o
+LINKOBJ  = 主体.o 递归储存文件名.o 查找关键字.o 查找最早创建文件.o
+LIBS     = -L"D:/DEV C++/Dev-Cpp/MinGW64/lib" -L"D:/DEV C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/DEV C++/Dev-Cpp/MinGW64/include" -I"D:/DEV C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/DEV C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/DEV C++/Dev-Cpp/MinGW64/include" -I"D:/DEV C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/DEV C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/DEV C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "IMAW-TECH 寒假项目.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+主体.o: 主体.cpp
+	$(CPP) -c 主体.cpp -o 主体.o $(CXXFLAGS)
+
+递归储存文件名.o: 递归储存文件名.cpp
+	$(CPP) -c 递归储存文件名.cpp -o 递归储存文件名.o $(CXXFLAGS)
+
+查找关键字.o: 查找关键字.cpp
+	$(CPP) -c 查找关键字.cpp -o 查找关键字.o $(CXXFLAGS)
+
+查找最早创建文件.o: 查找最早创建文件.cpp
+	$(CPP) -c 查找最早创建文件.cpp -o 查找最早创建文件.o $(CXXFLAGS)
