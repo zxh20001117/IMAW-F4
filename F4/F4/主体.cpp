@@ -15,15 +15,16 @@ int main()
 	string format = "";	
 	struct _finddata_t fileinfo;
 	long hFile =0;
-	while ((hFile = _findfirst(p.assign(filePath).append("\\*" + format).c_str(), &fileinfo)) == -1);//判断文件是否存在 
-	{	int a = 0;
+	int a = 0;
+	do
+	{	
 		if (a>0){
 			printf("\n\n！！该目录无效请输入正确目录！！\n"); 	
 		} 		
 		printf("请输入你想访问的目录；\n");	
 		getline(cin,filePath);
 		a++;
-	}
+	}while ((hFile = _findfirst(p.assign(filePath).append("\\*" + format).c_str(), &fileinfo)) ==-1);//判断文件是否存在 
 	getAllFiles(filePath, files,format);//获取所有文件 
 	getMarkedFiles(files,files1);//第一次关键字搜索 
 	getMarkedFiles(files1,files2); //第二次关键字搜索 	
